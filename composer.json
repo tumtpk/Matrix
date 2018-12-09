@@ -1,0 +1,10 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "palanik/corsslim": "dev-slim3",
+        "monolog/monolog": "^1.19",
+        "twbs/bootstrap": "4.1.3",
+        "components/jquery": "^3.3",
+        "components/font-awesome": "^5.4"
+    }
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="vendor/components/font-awesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="src/css/jquery-confirm.min.css">
+    <style>
+        .mn-h{
+            height: calc(100vh - 100px);
+        }
+        .mn-h-200{
+            height: 210px;
+        }
+        .mn-h-250{
+            margin-top: 10px;
+            height: calc(100vh - 320px);
+        }
+        .scroll-y{
+            margin-top: 10px;
+            height: calc(100vh - 300px);
+            overflow: auto;
+        }
+        .scroll-y-result{
+            height: calc(100vh - 410px);
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        td.right{
+            text-align: right;
+        }
+        .scroll-y-center{
+            height: calc(100vh - 170px);
+            overflow: auto;
+        }
+        .right{
+            text-align: right;
+        }
+        .summary{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .content-result{
+            margin-bottom: 5px;
+        }
+        .table th, .table td {
+            padding: 0.6rem !important;
+        }
+        .card-header {
+            padding: 0.4rem 1.25rem !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">
+            Application
+        </a>
+    </nav>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mn-h">
+                    <div class="card-header bg-light">
+                        จุดให้บริการ
+                    </div>
+                    <div class="card-body">
+                        <select class="form-control" id="place">
+                            <option value="1">สถานที่ท่องเที่ยว</option>
+                            <option value="2">โรงแรม</option>
+                            <option value="3">ร้านอาหาร</option>
+                            <option value="4">มัสยิด</option>
+                        </select>
+                        <hr>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="search" placeholder="ค้นหาสถานที่">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="btnSearch"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="scroll-y">
+                            <table class="table table-no-border" id="place-result"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mn-h">
+                    <div class="card-header bg-light">
+                        เส้นทาง
+                    </div>
+                    <div class="card-body">
+                        <div class="scroll-y-center">
+                            <table class="table table-no-border" id="runway"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mn-h-200">
+                    <div class="card-header bg-light">
+                        ยานพาหนะ
+                    </div>
+                    <div class="card-body">
+                        <form id="calucate">
+                            <div class="row">
+                                <div class="form-group col-md-7">
+                                    <select class="form-control" required id="selectCar">
+                                        <option value="">เลือกพาหนะ</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <input type="number" id="number" class="form-control" placeholder="จำนวนวัน" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="return">
+                                    <label class="form-check-label" for="exampleCheck1">ไป-กลับ</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">คำนวน</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card mn-h-250">
+                    <div class="card-body">
+                        <div class="scroll-y-result" id="distanceList"></div>
+                        <div class="bg-light">
+                            <div class="row summary">
+                                <div class="col">
+                                    ระยะทางรวม
+                                </div>
+                                <div class="col right" id="totalDistance">
+                                    0 กม.
+                                </div>
+                            </div>
+                            <div class="row summary">
+                                <div class="col">
+                                    เงินรวม
+                                </div>
+                                <div class="col right" id="total">
+                                    0 บาท
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="vendor/components/jquery/jquery.js"></script>
+    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="src/js/jquery-confirm.min.js"></script>
+    <script src="src/js/main.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&key=[api]"></script>
+</body>
+</html>
