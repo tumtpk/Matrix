@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2018 at 09:23 AM
+-- Generation Time: Dec 09, 2018 at 01:52 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -53,14 +53,14 @@ CREATE TABLE `mosque` (
   `mosqueId` int(11) NOT NULL,
   `name` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `latitude` double DEFAULT NULL,
-  `longitude` double DEFAULT NULL
+  `longtitude` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `mosque`
 --
 
-INSERT INTO `mosque` (`mosqueId`, `name`, `latitude`, `longitude`) VALUES
+INSERT INTO `mosque` (`mosqueId`, `name`, `latitude`, `longtitude`) VALUES
 (1, 'ดารุซซาอาดะห์', 9.220181, 99.842084),
 (2, 'ดารุนอามาล (บ้านปลายทอนเหนือ)', 8.964299, 99.912803),
 (3, 'คอเขา', 8.994202, 99.914835),
@@ -144,14 +144,14 @@ CREATE TABLE `travel` (
   `travelId` int(11) NOT NULL,
   `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `latitude` double DEFAULT NULL,
-  `longitude` double DEFAULT NULL
+  `longtitude` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `travel`
 --
 
-INSERT INTO `travel` (`travelId`, `name`, `latitude`, `longitude`) VALUES
+INSERT INTO `travel` (`travelId`, `name`, `latitude`, `longtitude`) VALUES
 (1, 'สวนตาสรรค์', 9.266563, 99.759346),
 (2, 'ขนอมแกรนด์แคนยอน', 9.261828, 99.764043),
 (3, 'จุดชมวิวเนินเทวดา', 9.136469, 99.872505),

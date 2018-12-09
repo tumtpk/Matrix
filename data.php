@@ -36,8 +36,16 @@ $app->get('/place/{type}', function($request, $response){
 		$newResponse = $response->withJson([]);
 	}
 	else if($newsCount == 4){
-		//มัสยิด
-		$newResponse = $response->withJson([]);
+		$sql = "SELECT * FROM mosque";
+		$result = $conn->query($sql);
+		$array = [];
+
+		while ($obj = mysqli_fetch_object($result)){
+
+			$value[] = $obj;
+			
+		}
+		$newResponse = $response->withJson($value);	
 	}
 	else{
 		// สถานที่ท่องเที่ยว
