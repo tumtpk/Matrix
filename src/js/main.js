@@ -265,8 +265,14 @@ function callback(response, status) {
 
     var selectedCar = carData[selectCar.val()];
     var number = $("#number").val();
-    var total = ((totalDistance/1000)*selectedCar.carOilPrice)+(selectedCar.carPrice*number);
+    
+    var total =  ((totalDistance/1000)*selectedCar.carOilPrice)+(selectedCar.carPrice*number);
+    total = Math.round(total);
+    total = parseInt(total);
+    
+
     var isCheck = $("#return").prop("checked");
+    
     if(isCheck){
         total *= 2;
     }
