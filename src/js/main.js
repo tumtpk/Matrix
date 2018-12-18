@@ -258,15 +258,15 @@ function callback(response, status) {
                 case 1:iconStart = '<span style="color: #27408b;"><i class="fas fa-suitcase"></i></span>';break;
                 case 2:iconStart = '<span style="color: #ff69b4;"><i class="fas fa-hotel"></i></span>';break;
                 case 3:iconStart = '<span style="color: #ffff00;"><i class="fas fa-utensils"></i></span>';break;
-                case 4:iconStart = '<span style="color: #8470ff;"><i class="fas fa-mosque"></i></span>';;break;
-                case 4:iconStart = '<span style="color: black;"><i class="fas fa-halal"></i></span>';;break;
+                case 4:iconStart = '<span style="color: #8470ff;"><i class="fas fa-mosque"></i></span>';break;
+                // case 5:iconStart = '<span style="color: black;"><i class="fas fa-halal"></i></span>';;break;
             }
             switch (nextPoint.type) {
                 case 1:iconEnd = '<span style="color: #27408b;"><i class="fas fa-suitcase"></i></span>';break;
                 case 2:iconEnd = '<span style="color: #ff69b4;"><i class="fas fa-hotel"></i></span>';break;
                 case 3:iconEnd = '<span style="color: #ffff00;"><i class="fas fa-utensils"></i></span>';break;
-                case 4:iconEnd = '<span style="color: #8470ff;"><i class="fas fa-mosque"></i></span>';;break;
-                case 4:iconStart = '<span style="color: black;"><i class="fas fa-halal"></i></span>';;break;
+                case 4:iconEnd = '<span style="color: #8470ff;"><i class="fas fa-mosque"></i></span>';break;
+                // case 5:iconStart = '<span style="color: black;"><i class="fas fa-halal"></i></span>';;break;
             }
             html += '<div class="row content-result">'
                 + '<div class="col-7">'
