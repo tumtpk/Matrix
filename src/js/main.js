@@ -8,18 +8,20 @@ var source = [];
 var destination = [];
 var carData = [];
 var selectCar = $("#selectCar");
+// var base_url = "http://172.16.185.92/Matrix/data.php";
+var base_url = "http://localhost/Matrix/data.php";
 
 init();
 
 function init(){
-    $.get("http://localhost/Matrix/data.php/place/1", {},
+    $.get(base_url+"/place/1", {},
         function (data, textStatus, jqXHR) {
             alldata = data;
             type = 1 ;
             setData(alldata,type);
         }
     );
-    $.get("http://localhost/Matrix/data.php/car", {},
+    $.get(base_url+"/car", {},
         function (data, textStatus, jqXHR) {
             carData = data;
             setCar(carData);
@@ -30,7 +32,7 @@ function init(){
 place.change(function () { 
     var selectVal = $(this).val();
     search.val("");
-    $.get("http://localhost/Matrix/data.php/place/"+selectVal, {},
+    $.get(base_url+"/place/"+selectVal, {},
         function (data, textStatus, jqXHR) {
             alldata = data;
             type = selectVal;
@@ -95,6 +97,16 @@ function setData(dataSelect ,type){
             else if(type == 4){
                 //มั่สยิด
                 type = 4 ;
+                html += '<tr>'
+                + '<td> <span style="color: #8470ff;"><i class="fas fa-mosque"></i></span>'+" "+value.name+'</td>'
+                + '<td class="right">'
+                    + '<button type="button" class="btn btn-info btn-sm" onclick="addResult(\''+value.name+'\','+value.latitude+','+value.longtitude+','+type+')"><i class="fas fa-plus"></i></button>'
+                    + '</td>'
+            + '</tr>';
+            }
+            else if(type == 5){
+                //ร้านอาหารอิสลาม
+                type = 5 ;
                 html += '<tr>'
                 + '<td> <span style="color: #8470ff;"><i class="fas fa-mosque"></i></span>'+" "+value.name+'</td>'
                 + '<td class="right">'
@@ -182,6 +194,9 @@ function setMap(dataSelect){
             else if(value.type == 4){
                 icon = '<span style="color: #8470ff;"><i class="fas fa-mosque"></i></span>';
             }
+            else if(value.type == 5){
+                icon = '<span style="color: black;"><i class="fas fa-halal"></i></span>';
+            }
                 html += '<tr>'
                 + '<td>'+icon+" "+value.name+'</td>'
                 + '<td class="right">'
@@ -244,12 +259,14 @@ function callback(response, status) {
                 case 2:iconStart = '<span style="color: #ff69b4;"><i class="fas fa-hotel"></i></span>';break;
                 case 3:iconStart = '<span style="color: #ffff00;"><i class="fas fa-utensils"></i></span>';break;
                 case 4:iconStart = '<span style="color: #8470ff;"><i class="fas fa-mosque"></i></span>';;break;
+                case 4:iconStart = '<span style="color: black;"><i class="fas fa-halal"></i></span>';;break;
             }
             switch (nextPoint.type) {
                 case 1:iconEnd = '<span style="color: #27408b;"><i class="fas fa-suitcase"></i></span>';break;
                 case 2:iconEnd = '<span style="color: #ff69b4;"><i class="fas fa-hotel"></i></span>';break;
                 case 3:iconEnd = '<span style="color: #ffff00;"><i class="fas fa-utensils"></i></span>';break;
                 case 4:iconEnd = '<span style="color: #8470ff;"><i class="fas fa-mosque"></i></span>';;break;
+                case 4:iconStart = '<span style="color: black;"><i class="fas fa-halal"></i></span>';;break;
             }
             html += '<div class="row content-result">'
                 + '<div class="col-7">'

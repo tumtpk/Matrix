@@ -53,12 +53,40 @@
         .card-header {
             padding: 0.4rem 1.25rem !important;
         }
+
+        @media(max-width:768px){
+            .mn-h{
+                height: 500px;
+            }
+            .scroll-y{
+                margin-top: 10px;
+                height: 300px;
+                overflow: auto;
+            }
+            .scroll-y-center{
+                height: 400px;
+                overflow: auto;
+            }
+            .mn-h-200 {
+                height: 260px !important;
+            }
+            .mn-h-250{
+                margin-top: 10px;
+                height: 350px;
+            }
+            .scroll-y-result{
+                height: 250px;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-dark bg-primary">
         <a class="navbar-brand" href="#">
-            Application
+            <!-- แพล็ตฟอร์มโลจิสติกส์เพื่อการท่องเที่ยวของวิสาหกิจชุมชนกลุ่มอนุรักษ์ป่าชายเลนบ้านแหลมโฮมสเตย์ที่เชื่อมโยงกับแหล่งท่องเที่ยวอื่นๆในจังหวัดนครศรีธรรมราช -->
+            แพล็ตฟอร์มท่องเที่ยวนครศรีธรรมราช
         </a>
     </nav>
     <br>
@@ -75,6 +103,7 @@
                             <option value="2">โรงแรม</option>
                             <option value="3">ร้านอาหาร</option>
                             <option value="4">มัสยิด</option>
+                            <!-- <option value="5">ร้านอาหารอิสลาม</option> -->
                         </select>
                         <hr>
                         <div class="input-group">

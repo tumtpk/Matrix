@@ -29,14 +29,44 @@ $app->get('/place/{type}', function($request, $response){
 	
 	if($newsCount == 2){
 		// โรงแรม
-		$newResponse = $response->withJson([]);
+		$sql = "SELECT * FROM hotel";
+		$result = $conn->query($sql);
+		$array = [];
+
+		while ($obj = mysqli_fetch_object($result)){
+
+			$value[] = $obj;
+			
+		}
+		$newResponse = $response->withJson($value);	
 	}
 	else if($newsCount == 3){
 		// ร้านอาหาร
-		$newResponse = $response->withJson([]);
+		$sql = "SELECT * FROM restaurant";
+		$result = $conn->query($sql);
+		$array = [];
+
+		while ($obj = mysqli_fetch_object($result)){
+
+			$value[] = $obj;
+			
+		}
+		$newResponse = $response->withJson($value);	
 	}
 	else if($newsCount == 4){
 		$sql = "SELECT * FROM mosque";
+		$result = $conn->query($sql);
+		$array = [];
+
+		while ($obj = mysqli_fetch_object($result)){
+
+			$value[] = $obj;
+			
+		}
+		$newResponse = $response->withJson($value);	
+	}
+	else if($newsCount == 5){
+		$sql = "SELECT * FROM islamicrestaurant";
 		$result = $conn->query($sql);
 		$array = [];
 
